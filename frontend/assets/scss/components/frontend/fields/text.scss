@@ -1,0 +1,11 @@
+.calc-textarea-box{
+  position: relative;
+}
+.calc-textarea {
+  resize: none;
+  outline: none;
+
+  &:focus {
+    border-color: #00b163;
+  }
+}

@@ -1,0 +1,20 @@
+.ccb-indention-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+
+  & > div {
+    width: 25%;
+    border-right: 1px solid #dddddd;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  input {
+    border: none !important;
+  }
+}

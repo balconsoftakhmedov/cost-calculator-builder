@@ -1,0 +1,38 @@
+.ccb-loader {
+  border: 6px solid #d2d8e5;
+
+  &.front {
+    left: 40%;
+    position: relative;
+    border: 6px solid #fff;
+    border-top: 6px solid $iconColor;
+  }
+
+  border-radius: 50%;
+  border-top: 6px solid $iconColor;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  margin: 0 auto !important;
+  text-align: center;
+}
+
+@media screen and (max-width: 800px)  {
+  .ccb-loader {
+    left: 40%;
+  }
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

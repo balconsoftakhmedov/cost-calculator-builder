@@ -1,0 +1,140 @@
+.fields-header {
+  padding-top: 15px;
+
+  h4 {
+    margin: 0;
+    font-size: 15px;
+    padding: 0 0 4px 0;
+  }
+
+  p {
+    font-size: 11px;
+    color: $textGrayColor;
+    padding: 0;
+    margin: 0;
+  }
+
+  &.condition {
+    margin-left: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.fields-wrapper {
+  .calc-field-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .calc-field {
+      width: 48.5%;
+      cursor: move;
+      border-radius: 7px;
+      margin-bottom: 7px;
+      position: relative;
+      border: 1px solid $borderColor;
+      transition: box-shadow .2s linear, border-color .2s linear;
+
+      &:hover {
+        border-color: $iconColor;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      &:hover i.calc-field__add {
+        opacity: .1;
+      }
+
+      i {
+        top: 50%;
+        font-size: 20px;
+        position: absolute;
+
+
+        &.calc-field__svg,
+        &.calc-field__icon {
+          left: 45px;
+          color: $iconColor;
+          transform: translateX(-20px) translateY(-50%);
+
+        }
+
+        &.calc-field__svg {
+          width: 25px;
+        }
+
+        &.calc-field__add {
+          right: 15px;
+          opacity: 0;
+          cursor: pointer;
+          transform: translateY(-50%);
+          transition: opacity .2s linear;
+
+        }
+
+      }
+
+      .calc-field__content {
+        * {
+          margin: 0;
+          padding: 0;
+        }
+
+        padding: 10px;
+        position: relative;
+        margin-left: 52px;
+
+        .calc-field__title {
+          font-size: 15px;
+        }
+
+        .calc-field__field {
+          font-size: 14px;
+        }
+
+        .calc-field__desc {
+          font-size: 12px;
+          color: $textGrayColor;
+        }
+      }
+    }
+  }
+
+  &.condition {
+    margin-left: 30px;
+    .calc-field-row {
+      flex-wrap: nowrap;
+      flex-direction: column;
+
+      .calc-field {
+        transform-origin: top left;
+        width: 182px;
+        height: 52px;
+        position: relative;
+        border-radius: 10px;
+        background-color: #fff;
+        border: 1px solid #c7d2d2;
+        transition: border .2s linear;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        .calc-field__add {
+          display: none;
+        }
+
+        .calc-field__content {
+           padding: 0 !important;
+           margin: 0 !important;
+
+          top: 50%;
+          width: 100%;
+          position: absolute;
+          transform: translateY(-50%);
+
+          .calc-field__title {
+            margin-left: 55px;
+            margin-right: 20px;
+            word-break: break-word;
+          }
+        }
+      }
+    }
+  }
+}

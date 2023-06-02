@@ -1,0 +1,145 @@
+$white: #ffffff;
+$border-color: #d0d0d0;
+$border-bottom-color: #f7f7f7;
+
+.calc-drop-down-with-image {
+  margin-bottom: 3px;
+  .select {
+    display: none !important;
+  }
+
+  .ccb-select-arrow {
+    top: 54%;
+    z-index: 2;
+    right: 12px;
+    opacity: 0.5;
+    font-size: 8px;
+    position: absolute;
+    transform: translateY(-50%) rotate(180deg);
+    transition: all 200ms ease-in-out;
+
+    &.ccb-arrow-down {
+      bottom: 14px;
+      transform: translateY(-50%) rotate(0deg);
+    }
+  }
+
+  &-current {
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    align-items: center;
+    padding-left: 5px;
+
+    &.calc-dd-selected {
+      border: 2px solid #00B163;
+    }
+
+    .calc-current-image-placeholder {
+      width: 30px;
+      height: 30px;
+      display: block;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .calc-dd-with-option-label {
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    img {
+      width: 30px !important;
+      height: 30px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      object-fit: cover;
+      margin-right: 8px;
+    }
+  }
+
+  &-list {
+    display: none;
+    z-index: 20;
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 4px;
+    position: absolute;
+    background: $white;
+    border-color: transparent;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-height: 261px;
+    overflow-y: auto;
+
+    @media screen and (max-width: 500px) {
+      max-height: 170px;
+    }
+
+    &.calc-list-open {
+      display: block !important;
+    }
+
+    &-items {
+      padding-left: 0;
+
+      img {
+        width: 12px;
+      }
+
+      li {
+        padding: 10px;
+        display: flex;
+        cursor: pointer;
+        list-style: none;
+        align-items: center;
+        border-bottom: 2px solid $border-bottom-color;
+        max-height: 71px;
+        min-height: 71px;
+
+        img {
+          width: 50px !important;
+          height: 50px;
+          border-radius: 4px;
+          border: 1px solid transparent;
+          margin-right: 10px;
+          object-fit: cover;
+          position: inherit !important;
+
+          @media screen and (max-width: 500px) {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        span {
+          flex: 1;
+          color: inherit;
+
+          &.calc-list-wrapper {
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+
+            .calc-list-title {
+              color: #001931;
+              font-size: 15px;
+              font-weight: 500;
+            }
+
+            .calc-list-price {
+              font-size: 13px;
+              font-weight: 500;
+              color: rgba(0, 25, 49, 0.7);
+            }
+          }
+        }
+
+        &:last-child {
+          border-color: transparent;
+        }
+      }
+    }
+  }
+}

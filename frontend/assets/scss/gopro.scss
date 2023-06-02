@@ -1,0 +1,648 @@
+@import "components/admin/components/ccb-texts";
+/** Colors **/
+$base-color: #1ab163;
+
+@mixin stm-icon($url) {
+  content: '';
+  background-image: url($url);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+body {
+  &.cost-calculator_page_cost_calculator_gopro {
+    font-family: "Eudoxus Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    #wpfooter {
+      display: none !important;
+    }
+
+    #wpbody-content {
+      padding-bottom: 0 !important;
+    }
+
+    p,
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .cost_calculator_go_pro {
+      background: #ffffff;
+      margin: 20px 20px 20px 0;
+      border-radius: 10px;
+      height: 100vh;
+      
+      
+      @media (max-width: 1440px) {
+        padding-top: 50px;
+      }
+
+      @media (max-width: 820px) {
+        padding-top: 100px;
+      }
+
+      .stm-discount {
+        display: flex;
+        justify-content: space-between;
+        background-image: url("../img/go-pro/bg.svg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 29px 47px;
+        border-radius: 10px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        
+        @media (max-width: 820px) {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .stm-discount__title {
+          font-family: 'Eudoxus Sans';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 30px;
+          line-height: 38px;
+          margin-bottom: 4px;
+          color: #001931;
+        }
+
+        .stm-discount__description {
+          font-family: 'Eudoxus Sans';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 20px;
+          color:  #001931B3;
+
+          span {
+            &:first-child {
+              color:  #001931;
+              opacity: 0.7;
+            }
+            &:last-child {
+              color: #00B163;
+              font-weight: 700;
+            }
+          }
+        }
+
+        .stm-discount-code {
+          padding: 10px 55px;
+          background-image: url("../img/go-pro/coupon.svg");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          
+          @media (max-width: 820px) {
+            max-width: 120px;
+            margin: 20px auto;
+
+          }
+
+          &__label {
+            font-family: 'Eudoxus Sans';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+            color: #001931;
+            opacity: 0.5;
+          }
+
+          &__value {
+            font-family: 'Eudoxus Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 23px;
+            text-align: center;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      .stm_go_pro_menu {
+        font-size: 17px;
+      }
+
+      .stm_go_pro {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+
+      .container {
+        box-sizing: border-box;
+        padding-right: 10px;
+        padding-left: 10px;
+        max-width: 960px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .row {
+        display: flex;
+        margin-right: -10px;
+        margin-left: -10px;
+        flex-wrap: wrap;
+      }
+
+      .col-md-4 {
+        position: relative;
+        padding-right: 10px;
+        padding-left: 10px;
+        width: 100%;
+        box-sizing: border-box;
+
+        &:first-child,
+        &:last-child {
+          .stm_plan {
+            border: 2px solid #dddddd;
+            background-color: #ffffff;
+          }
+        }
+
+        .stm_plan {
+          box-shadow: none !important;
+
+          &__description {
+            cursor: pointer;
+            opacity: 0.5;
+            color: #001931;
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: underline;
+            margin-top: 20px;
+            text-align: center;
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+
+      @media (min-width: 768px) {
+        .col-md-4 {
+          width: 33.3333333333%;
+          flex: 0 0 auto;
+        }
+      }
+
+      .stm_go_pro h2 {
+        display: flex;
+        justify-content: center;
+      }
+
+      .stm_go_pro_plugin {
+        text-align: center;
+        box-sizing: border-box;
+
+        &__title {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &::before {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            margin-right: 20px;
+            @include stm-icon('../img/calc.png');
+          }
+        }
+
+        &__content {
+          margin: 20px auto 0;
+          max-width: 720px;
+
+          a {
+            color: #00b163;
+            opacity: 0.7;
+            cursor: pointer;
+            transition: opacity 200ms linear;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      .stm-type-pricing {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .left, .right {
+          opacity: 0.5;
+          font-style: normal;
+          letter-spacing: normal;
+          text-align: center;
+          padding: 0 18px;
+
+          &.active {
+            opacity: 1;
+          }
+        }
+
+        &__switch {
+          position: relative;
+          line-height: 1;
+
+          input {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            z-index: 5;
+            opacity: 0;
+            cursor: pointer;
+
+            &:checked + label {
+              background: $base-color !important;
+
+              &:after {
+                background: #fff;
+                left: 27px;
+              }
+            }
+          }
+
+          label {
+            display: inline-block;
+            position: relative;
+            width: 51px;
+            min-width: 51px;
+            height: 27px;
+            margin: 0;
+            border-radius: 13px;
+            background-color: rgba(1, 26, 48, 0.7);;
+            cursor: pointer;
+            transition: .4s;
+            -webkit-transition: .4s;
+
+            &:after {
+              content: "";
+              position: absolute;
+              width: 21px;
+              height: 21px;
+              left: 3px;
+              top: 3px;
+              border-radius: 10px;
+              background-color: #ffffff;
+              transition: .4s;
+              -webkit-transition: .4s;
+              z-index: 2;
+            }
+          }
+        }
+      }
+
+      .stm_plan {
+        display: flex;
+        padding: 65px 45px 49px;
+        margin-top: 41px;
+        box-sizing: border-box;
+        flex-direction: column;
+        box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        background-color: #ffffff;
+
+        &__type {
+          display: flex;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          padding: 4px 6px;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          font-weight: 700;
+          color: #ffffff;
+          line-height: 16px;
+          border-radius: 20px;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+        }
+
+        &--developer {
+          border: 2px solid #dddddd;
+          background-color: #ffffff;
+        }
+
+        &--developer, &--popular {
+          position: relative;
+        }
+
+        &--developer .stm_plan__type {
+          padding: 4px 12px;
+          background-color: #000000;
+        }
+
+        &--popular {
+          border: 2px solid $base-color;
+        }
+
+        &--popular .stm_plan__type {
+          background-color: $base-color;
+
+          &::before {
+            width: 10px;
+            height: 14px;
+            margin-right: 4px;
+            @include stm-icon('../img/popular.svg');
+          }
+        }
+
+        &__title {
+          opacity: 0.7;
+          color: #001931;
+          font-size: 16px;
+          text-align: center;
+          font-weight: 500;
+          margin: 20px 0 30px;
+        }
+
+        &__btn {
+          width: 100%;
+          border-radius: 4px;
+          border: 2px solid $base-color;
+          background-color: $base-color;;
+          text-decoration: none;
+
+          display: block;
+          text-align: center;
+
+          padding-bottom: 13px;
+          padding-top: 13px;
+          color: #ffffff;
+          font-size: 14px;
+          font-weight: 700;
+          font-style: normal;
+          letter-spacing: 0.56px;
+          line-height: 18px;
+          outline: none !important;
+          box-shadow: none !important;
+          transition: all 200ms linear;
+
+          &--buy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &::before {
+              width: 19px;
+              height: 17px;
+              margin-right: 11px;
+              filter: brightness(0) invert(1);
+              @include stm-icon('../img/cart.svg');
+            }
+          }
+
+          &:hover {
+            border-color: darken($base-color, 7%);
+            background-color: darken($base-color, 7%);
+          }
+        }
+
+        &__link-upgrade {
+          margin-top: 10px;
+          color: $base-color;
+          font-size: 12px;
+          font-weight: 400;
+          font-style: normal;
+          letter-spacing: normal;
+          line-height: 22px;
+          text-align: center;
+          text-decoration: underline;
+
+          &:hover {
+            color: $base-color;
+          }
+        }
+      }
+
+      .stm_price {
+        height: 38px;
+        color: #273044;
+        font-size: 40px;
+        font-weight: 700;
+        font-style: normal;
+        letter-spacing: -1.6px;
+        line-height: 25.98px;
+        text-align: center;
+        white-space: nowrap;
+
+        sup {
+          color: #273044;
+          font-size: 18px;
+          font-weight: 700;
+          font-style: normal;
+          letter-spacing: normal;
+          line-height: 25.98px;
+          text-align: center;
+        }
+
+        small {
+          opacity: 0.5;
+          color: #001931;
+          font-size: 14px;
+          font-weight: 500;
+          font-style: normal;
+          letter-spacing: normal;
+          line-height: 25.98px;
+          text-align: left;
+
+          &.hidden{
+            display: none;
+          }
+        }
+      }
+
+      .stm_terms_content {
+        margin-top: 29px;
+        margin-bottom: 19px;
+        color: #969aa5 !important;
+        font-style: normal;
+        letter-spacing: normal;
+        line-height: 22px;
+        text-align: center;
+        text-decoration: none;
+
+        a {
+          color: $base-color !important;
+        }
+      }
+
+      .stm_last_changelog_info {
+        @media screen and (max-width: 767px) {
+          display:block;
+        }
+
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        padding-top: 13px;
+        padding-bottom: 10px;
+        background-color: rgba(238, 241, 247, 0.7);
+
+
+        &--label {
+
+        }
+
+        &--value {
+
+
+          a {
+            color: rgba(1, 26, 48, 0.7);
+            text-decoration: underline;
+          }
+        }
+
+        li {
+          padding-right: 30px;
+          padding-left: 30px;
+          color: rgba(1, 26, 48, 0.7);
+
+          &:first-child {
+            a {
+              cursor: pointer;
+              color: $base-color !important;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  .pricing-section {
+    margin-top: 45px !important;
+  }
+
+    @media only screen and (max-width: 1800px) {
+      .pricing-section {
+        margin-top: 25px !important;
+      }
+
+      .stm_go_pro_plugin__content {
+        margin-top: 18px !important;
+      }
+
+      .stm-type-pricing {
+        margin-top: 25px !important;
+      }
+
+      .stm_plan {
+        padding: 55px 35px 39px !important;
+      }
+
+      .stm_price {
+        font-size: 35px !important;
+      }
+
+      .stm_plan__title {
+        margin: 18px 0 28px !important;
+      }
+    }
+
+    @media only screen and (max-width: 1550px) {
+      .pricing-section {
+        margin-top: 20px !important;
+      }
+
+      .stm_go_pro_plugin__content {
+        margin-top: 15px !important;
+      }
+
+      .stm_go_pro_plugin__title {
+        &:before {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      .stm-type-pricing {
+        margin-top: 20px !important;
+      }
+
+      .stm-type-pricing__switch {
+        input {
+          &:checked + label {
+            &:after {
+              left: 22px !important;
+            }
+          }
+        }
+
+        label {
+          width: 40px !important;
+          min-width: 40px !important;
+          height: 20px !important;
+
+          &:after {
+            width: 14px !important;
+            height: 14px !important;
+          }
+        }
+      }
+
+      .stm_plan {
+        padding: 50px 30px 34px !important;
+      }
+
+      .stm_price {
+        font-size: 30px !important;
+      }
+
+      .stm_plan__title {
+        margin: 15px 0 25px !important;
+      }
+    }
+
+    @media only screen and (max-width: 1320px) {
+      .pricing-section {
+        margin-top: 15px !important;
+      }
+
+      .stm_go_pro_plugin__content {
+        margin-top: 13px !important;
+      }
+
+      .stm-type-pricing {
+        margin-top: 15px !important;
+      }
+
+      .stm_plan {
+        padding: 45px 25px 29px !important;
+      }
+
+      .stm_price {
+        font-size: 25px !important;
+      }
+
+      .stm_plan__title {
+        margin: 12px 0 20px !important;
+      }
+    }
+}

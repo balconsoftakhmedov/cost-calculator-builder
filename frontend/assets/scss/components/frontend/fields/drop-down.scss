@@ -1,0 +1,35 @@
+.calc-drop-down-box {
+  position: relative;
+  width: 100%;
+
+  .ccb-select-arrow {
+    top: 54%;
+    z-index: 2;
+    right: 12px;
+    opacity: 0.5;
+    font-size: 8px;
+    position: absolute;
+    cursor: default;
+    pointer-events: none;
+    transform: translateY(-54%) rotate(0deg);
+    transition: all .2s ease-in-out;
+    &.active {
+      transform: translateY(-54%) rotate(180deg);
+    }
+  }
+
+  .calc-drop-down {
+    opacity: 1;
+    visibility: visible;
+    -webkit-appearance: none;
+    background-size: 0;
+    width: 100%;
+    max-width: 100%;
+    cursor: pointer;
+
+
+    &:focus {
+      border-color: #00b163;
+    }
+  }
+}

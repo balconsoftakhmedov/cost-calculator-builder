@@ -1,0 +1,36 @@
+.ccb-checkboxes {
+  line-height: 1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  input {
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    outline: none !important;
+    box-shadow: none !important;
+    border: 2px solid #dddddd !important;
+
+    &:checked {
+      background-color: #00b163 !important;
+      border-color: #00b163 !important;
+      &:before {
+        filter: brightness(0) invert(1);
+        transform: rotate(5deg);
+      }
+    }
+  }
+
+  &-label {
+    color: #001931;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,39 @@
+@import 'components/variables';
+@import 'components/admin/components/loader';
+@import 'components/frontend/partials/payments';
+@import 'components/frontend/partials/send-form';
+@import 'components/frontend/calc-wrap';
+@import 'components/frontend/fields/index';
+@import 'components/admin/components/ccb-notice';
+@import 'components/frontend/partials/loaders';
+@import 'components/frontend/partials/invoice';
+
+.product-name {
+  dt {
+    float: unset !important;
+  }
+}
+
+.is-pro {
+  display: none;
+}
+
+.ccb-hr {
+  display: flex;
+  justify-content: center;
+}
+
+.calc-subtotal-wrapper {
+  @media screen and (max-width: 768px) {
+    position: unset !important;
+    transform: unset !important;
+    width: 100% !important;
+  }
+
+}
+
+.modal-body {
+  .ccb-summary-sticky {
+    top: 0 !important;
+  }
+}

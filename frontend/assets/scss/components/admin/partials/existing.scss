@@ -1,0 +1,137 @@
+.existing-header {
+  display: flex;
+  padding: 25px 30px;
+  justify-content: space-between;
+  border-bottom: none !important;
+
+  .existing-header__title {
+    display: flex;
+    align-items: center;
+
+    i {
+      font-size: 18px;
+      margin-right: 7px;
+      color: $iconColor;
+    }
+
+    h4 {
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+}
+
+.existing-body {
+  padding: 0 30px 30px;
+
+  .existing-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .existing-list {
+      display: flex;
+      padding: 10px 17px;
+      border-radius: 5px;
+      align-items: center;
+      margin-bottom: 10px;
+      background-color: $whiteColor;
+      transition: all 0.6s cubic-bezier(0.15, 0.8, 0.5, 1);
+
+      &:not(.header) {
+        box-shadow: 0 0 10px 5px $modalBgColor;
+      }
+
+      &.animated {
+        box-shadow: 0 0 10px rgba(255, 0, 0, .3);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .list-title {
+        color: $blackColor;
+        font-size: 14px;
+
+        &.id {
+          width: 5%;
+        }
+        &.checkbox {
+          width: 5%;
+        }
+
+        &.title {
+          width: calc(45% - 60px);
+          font-weight: bold;
+        }
+
+        &.shortcode {
+          width: calc(45% - 60px);
+          color: #adaeb3;
+        }
+
+        &.actions {
+          width: 120px;
+        }
+      }
+
+      &.header {
+        padding: 20px 17px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        background-color: #3c3d4a;
+
+        .list-title {
+          color: #d7dcdd;
+
+          &.title {
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+}
+
+.existing-footer {
+  padding: 0 30px 30px;
+  .bulk-actions{
+    display: inline-flex;
+    select {
+      display: block;
+      min-width: 200px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 5px;
+      text-indent: 20px;
+      border-color: #ccc;
+      -webkit-appearance: none;
+      background-size: 16px 16px;
+      background: $bgColor url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E) no-repeat right 15px top 55%;
+      &:focus, &:hover {
+        resize: none;
+        outline: none;
+        box-shadow: none;
+      }
+    }
+
+    button{
+      background: $iconColor;
+      color: #fff;
+      display: block;
+      font-size: 14px;
+      position: relative;
+      border-radius: 5px;
+      text-decoration: none;
+      border: 1px solid transparent;
+      padding: 12px 20px;
+      margin-left: 20px;
+      &:focus, &:hover {
+        outline: none;
+        background: $btnHover;
+        box-shadow: none;
+      }
+    }
+  }
+}

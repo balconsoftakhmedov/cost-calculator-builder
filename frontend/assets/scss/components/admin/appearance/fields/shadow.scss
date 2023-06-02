@@ -1,0 +1,43 @@
+.ccb-appearance-shadow {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #dddddd;
+
+  &-inner {
+    display: flex;
+    flex-wrap: nowrap;
+
+    & > div {
+      width: 50%;
+
+      input,
+      .ccb-color-picker {
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+
+    &:first-child {
+      & > div {
+        &:nth-child(1) {
+          border-bottom: 1px solid #dddddd;
+          border-right: 1px solid #dddddd;
+        }
+
+        &:nth-child(2) {
+          border-bottom: 1px solid #dddddd;
+        }
+      }
+    }
+
+    &:last-child {
+      & > div {
+        &:nth-child(1) {
+          border-right: 1px solid #dddddd;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+[submodule "includes/lib/stm-mailchimp-integration"]
+	path = includes/lib/stm-mailchimp-integration
+	url = https://bitbucket.org/stylemixthemes/stm-mailchimp-integration.git
+[submodule "includes/lib/admin-notifications-popup"]
+	path = includes/lib/admin-notifications-popup
+	url = https://bitbucket.org/stylemixthemes/admin-notifications-popup
+[submodule "includes/lib/admin-notices"]
+	path = includes/lib/admin-notices
+	url = https://bitbucket.org/stylemixthemes/admin-notices

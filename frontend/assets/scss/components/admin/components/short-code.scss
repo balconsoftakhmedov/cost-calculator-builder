@@ -1,0 +1,113 @@
+.ccb-short-code {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  &-label {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+
+    span:first-child {
+      color: #001931;
+      font-size: 14px;
+      font-weight: 500;
+
+      @media only screen and (max-width: 1550px) {
+        font-size: 13px;
+      }
+
+      @media only screen and (max-width: 1320px) {
+        font-size: 12px;
+      }
+    }
+
+    .ccb-code {
+      cursor: pointer;
+      display: block;
+      border-radius: 4px;
+      background-color: #eef1f7;
+      color: rgba(0, 25, 49, 0.5);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 0 5px;
+      transition: opacity 200ms linear;
+
+      @media only screen and (max-width: 1550px) {
+        font-size: 12px;
+      }
+
+      &:hover {
+        color: rgba(0, 25, 49, 0.6);
+      }
+    }
+  }
+
+  &-description {
+    color: rgba(0, 25, 49, 0.5);
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
+
+.ccb-short-code-copy {
+  max-width: 185px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: #eef1f7;
+  padding: 0 6px;
+  position: relative;
+  height: 24px;
+
+  @media only screen and (max-width: 1550px) {
+    padding: 0 6px;
+    height: 20px;
+    max-width: 170px;
+  }
+
+  .code {
+    margin-right: 24px;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    color: rgba(0, 25, 49, 0.57) !important;
+    transition: color 200ms linear;
+
+    @media only screen and (max-width: 1800px) {
+      font-size: 13px !important;
+    }
+
+    @media only screen and (max-width: 1550px) {
+      font-size: 12px !important;
+    }
+
+    @media only screen and (max-width: 1320px) {
+      font-size: 11px !important;
+    }
+
+    &:hover {
+      color: rgba(0, 25, 49, 0.75) !important;
+    }
+  }
+
+  .ccb-copy-icon {
+    width: 24px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff !important;
+    border-radius: 0 5px 5px 0;
+    background-color: #00b163 !important;
+    transition: background-color 200ms linear;
+
+    &:hover {
+      background-color: darken(#00b163, 5%) !important;
+    }
+  }
+}

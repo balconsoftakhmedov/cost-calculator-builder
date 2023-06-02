@@ -1,0 +1,68 @@
+*.po~
+*.pot~
+*.map
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Dependency directories
+node_modules/
+libs/freemius
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.Trashes
+
+# Compile files
+mix-manifest.json
+frontend/dist/bundle.js
+frontend/dist/bundle.js.map
+frontend/dist/bundle.js.LICENSE.txt
+frontend/dist/bundle.css
+frontend/dist/gopro.css
+frontend/dist/admin.js
+frontend/dist/admin.js.map
+frontend/dist/admin.js.LICENSE.txt
+frontend/dist/order.js
+frontend/dist/order.js.map
+frontend/dist/order.js.LICENSE.txt
+frontend/dist/templates.js
+frontend/dist/templates.js.map
+frontend/dist/templates.js.LICENSE.txt
+frontend/dist/category.js
+frontend/dist/category.js.map
+frontend/dist/category.js.LICENSE.txt
+
+frontend/dist/css/admin.css
+frontend/dist/css/gopro.css
+frontend/dist/css/style.css
+frontend/dist/css/templates.css
+
+
+# Tests
+.travis.yml
+.phpcs.xml.dist
+phpunit.xml*
+bin/*
+tests/bootstrap.php
+
+/includes/lib/stm-mailchimp-integration

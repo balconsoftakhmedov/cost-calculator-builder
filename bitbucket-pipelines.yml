@@ -1,0 +1,174 @@
+image:
+  name: stylemixservices/bitbucket-deployments:v1
+  username: $DOCKER_HUB_USERNAME
+  password: $DOCKER_HUB_PASS
+  email: $DOCKER_HUB_EMAIL
+
+clone:
+  lfs: true
+  depth: 5
+
+definitions:
+  caches:
+    svn: svn
+  steps:
+    - script:
+        - &variables
+          export BASE=cost-calculator-builder;
+          export BASE_FILE=cost-calculator-builder.php;
+          export ARCHIVE=cost-calculator-builder.zip;
+        - &init_dev
+          initDevEnv && env
+        - &init_release
+          initReleaseEnv && env
+        - &package
+          .scripts/package.sh ${BASE} ${RELEASE}
+        - &2downloads
+          pipe: atlassian/bitbucket-upload-file:0.3.1
+          variables:
+            BITBUCKET_USERNAME: $BITBUCKET_USERNAME
+            BITBUCKET_APP_PASSWORD: $BITBUCKET_APP_PASSWORD
+            FILENAME: ./dist/${RELEASE}
+    - step: &test_version
+        name: Test version
+        script:
+          - *variables
+          - *init_release
+          - validateVersion $VERSION
+          - validateStableTag $VERSION
+    - step: &lint_pr
+        name: Lint PR
+        script:
+          - sh /home/pipelines/scripts/lint-pr.sh
+        condition:
+          changesets:
+            includePaths:
+              - "*.php"
+              - "**/*.php"
+
+pipelines:
+  pull-requests:
+    '**':
+      - step: *lint_pr
+      - step:
+          caches:
+            - node
+          script:
+            - *variables
+            - *init_dev
+            - .scripts/build.sh
+            - .scripts/submodules.sh
+            - *package
+            - *2downloads
+    master:
+      - step: *lint_pr
+      - step: *test_version
+  branches:
+    master:
+      - step:
+          caches:
+            - node
+          script:
+            - *variables
+            - *init_dev
+            - .scripts/build.sh
+            - .scripts/submodules.sh
+            - *package
+            - *2downloads
+    release:
+      - step: *test_version
+      - step:
+          name: Build
+          caches:
+            - node
+          script:
+            - *variables
+            - *init_release
+            - .scripts/build.sh
+            - .scripts/submodules.sh
+            - *package
+            - *2downloads
+          artifacts:
+            - 'dist/*'
+      - step:
+          name: Deploy to wordpress.org
+          deployment: wordpress-org
+          caches:
+            - svn
+          script:
+            - *variables
+            - export ASSETS=assets-wporg
+            - *init_release
+            - RELEASE=dist/${RELEASE} /home/pipelines/scripts/deploy-svn.sh
+      - step:
+          name: Tag version
+          script:
+            - *variables
+            - *init_release
+            - git tag ${VERSION}
+            # small workaround over LFS hooks
+            - rm -f .git/hooks/pre-push
+            - git push origin ${VERSION}
+  custom:
+    production-ccb-and-stylemixdev:
+      - step:
+          name: Build
+          caches:
+            - node
+          script:
+            - *variables
+            - *init_release
+            - .scripts/build.sh
+            - .scripts/submodules.sh
+            - export RELEASE=${ARCHIVE}
+            - *package
+          artifacts:
+            - 'dist/*'
+      - step:
+          name: Deploy to Production
+          deployment: production-ccb
+          script:
+            - *variables
+            - .scripts/deploy.sh
+      - step:
+          name: Deploy to stylemix.dev
+          deployment: stylemix-dev
+          script:
+            - *variables
+            - .scripts/deploy.sh
+    production-portal:
+      - step:
+          name: Build
+          script:
+            - *variables
+            - *init_release
+            - .scripts/build.sh
+            - .scripts/submodules.sh
+            - export RELEASE=${ARCHIVE}
+            - *package
+          artifacts:
+            - 'dist/*'
+      - step:
+          name: Deploy to Production
+          deployment: production-portal
+          script:
+            - *variables
+            - .scripts/deploy.sh
+    ccb-templates:
+      - step:
+          name: Build
+          script:
+            - *variables
+            - *init_release
+            - .scripts/build.sh
+            - .scripts/submodules.sh
+            - export RELEASE=${ARCHIVE}
+            - *package
+          artifacts:
+            - 'dist/*'
+      - step:
+          name: Deploy to CCB-Templates
+          deployment: ccb-templates
+          script:
+            - *variables
+            - .scripts/deploy.sh

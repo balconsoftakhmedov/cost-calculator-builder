@@ -1,0 +1,321 @@
+.ccb-page-content {
+  &.condition {
+    /* Overwrite the default to keep the scrollbar always visible */
+    ::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, .5);
+      -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+  }
+
+  &.calculator {
+    display: flex;
+    padding-top: 35px;
+    flex-direction: column;
+
+    .content-wrapper {
+      display: flex;
+      margin: 0 35px 35px;
+      justify-content: space-between;
+
+      .content-item {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .2s linear;
+
+        &.open {
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        &.disabled {
+          opacity: .3;
+          pointer-events: none;
+        }
+
+        &.left {
+          width: 52%;
+
+          .item {
+            height: unset;
+            margin: 0 0 7px;
+            background-color: #fff;
+          }
+
+          .item-row.input {
+            position: relative;
+
+            i {
+              left: 0;
+              top: 40%;
+              z-index: 2;
+              font-size: 20px;
+              position: absolute;
+              color: $textGrayColor;
+              transform: translateY(-40%);
+
+              &.after {
+                right: 0;
+                left: unset;
+                cursor: pointer;
+                color: $whiteColor;
+                font-size: 13px;
+                font-style: normal;
+                padding: 7px 15px;
+                border-radius: 5px;
+                text-align: center;
+                text-transform: uppercase;
+                border: 1px solid #d0d0d0;
+                background: $iconColor;
+                box-shadow: 0 3px 5px rgb(0 0 0 / 10%);
+              }
+            }
+
+            //input field
+            .ccb-create-input {
+              width: 100%;
+              position: relative;
+              display: inline-block;
+
+              &.disabled {
+                cursor: pointer;
+              }
+
+              * {
+                box-sizing: border-box;
+              }
+
+              .ccb-label-1 {
+                top: 15px;
+                left: 0;
+                font-size: 14px;
+                position: absolute;
+                padding-left: 30px;
+                color: $textGrayColor;
+                transform-origin: 0 0;
+                transition: all 0.2s ease;
+              }
+
+              .border {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 2px;
+                width: 100%;
+                background: $iconColor;
+                transform: scaleX(0);
+                transform-origin: 0 0;
+                transition: all 0.15s ease;
+              }
+
+              input {
+                width: 100%;
+                border: 0;
+                height: 45px;
+                font-size: 15px;
+                font-weight: 500;
+                background: none;
+                border-radius: 0;
+                box-shadow: none;
+                position: relative;
+                -webkit-appearance: none;
+                padding: 12px 0 6px 30px;
+                transition: all 0.15s ease;
+                font-family: inherit !important;
+                border-bottom: 2px solid $bgGray;
+
+                &:before {
+                  content: '\f044';
+                  display: block;
+                }
+
+                &:not(:placeholder-shown) + span {
+                  padding-left: 0;
+                  transform: translateY(-26px) scale(0.75);
+                }
+
+                &::placeholder {
+                  opacity: 0;
+                }
+
+                &:focus {
+                  background: none;
+                  outline: none;
+                }
+
+                &:focus + span {
+                  font-size: 14px;
+                  padding-left: 0;
+                  transform: translateY(-26px) scale(0.75);
+                }
+
+                &:focus + span + .border {
+                  transform: scaleX(1);
+                }
+              }
+            }
+          }
+
+          .calc-block {
+            padding: 11px;
+            border-radius: 7px;
+            position: relative;
+            background: $bgGray;
+
+
+            .sortable-chosen {
+              padding: 14px;
+              cursor: move;
+              border-radius: 7px;
+              opacity: .5;
+              margin-bottom: 7px;
+              background-color: #fff;
+              border: 1px solid $borderColor;
+              transition: border-color .2s linear, box-shadow .2s linear;
+
+              .calc-field__container {
+                display: flex;
+                align-content: center;
+                align-items: center;
+
+                i {
+                  color: $iconColor;
+                  margin-right: 10px;
+                }
+
+                .calc-field__title {
+                  padding: 0;
+                  margin: 2px 0 0 0;
+                }
+
+                .calc-field__desc,
+                .calc-field__add {
+                  display: none;
+                }
+              }
+            }
+
+
+            .list-group-item {
+              padding: 14px;
+              cursor: move;
+              border-radius: 7px;
+              margin-bottom: 7px;
+              border: 1px solid $borderColor;
+              transition: border-color .2s linear, box-shadow .2s linear;
+
+              &:last-child {
+                cursor: default;
+                margin-bottom: 0;
+              }
+
+              &.empty {
+                margin: 0;
+                height: unset;
+                cursor: pointer;
+                text-align: center;
+                background: transparent;
+                border: 1px dashed #b0b5ba;
+
+                span {
+                  font-size: 14px;
+                  color: #b0b5ba;
+                }
+              }
+
+              .tools-field {
+                z-index: 1;
+                position: relative;
+
+                display: flex;
+                justify-content: space-between;
+
+                .left-icon {
+                  color: $iconColor;
+                  width: 14px;
+                }
+
+                .field-title {
+                  font-size: 14px;
+                  font-weight: bold;
+                  margin-left: 10px;
+                }
+
+                .field-alias {
+                  font-size: 14px;
+                }
+
+                .field-type {
+                  font-size: 14px;
+                  color: #bec5c6;
+                }
+
+                .extra-link {
+                  position: absolute;
+                  right: 0;
+                  bottom: 1px;
+
+                  .edit-field {
+                    opacity: 0;
+                    z-index: 9999999;
+                    color: #494a56;
+                    cursor: pointer;
+                    font-size: 12px;
+                    font-weight: 500;
+                    padding: 6px 15px;
+                    margin-right: 20px;
+                    border-radius: 3px;
+                    background-color: #fff;
+                    border: 1px solid $borderColor;
+                    transition: opacity .2s linear, box-shadow .2s linear;
+
+                    i {
+                      margin-right: 5px;
+                    }
+                  }
+
+                  .delete {
+                    color: #8a8b92;
+                    cursor: pointer;
+                    font-size: 14px;
+                  }
+                }
+              }
+
+              &:hover {
+                border-color: $iconColor;
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+              }
+
+              &:hover:last-child {
+                border-color: #b0b5ba;
+                box-shadow: none;
+              }
+
+              &:hover .edit-field {
+                opacity: 1 !important;
+                z-index: 2 !important;
+                background-color: #fff;
+              }
+            }
+          }
+
+          .buttons {
+
+
+          }
+        }
+
+        &.right {
+          width: 42%;
+          @import "partials/calc-field-row";
+        }
+      }
+    }
+  }
+}

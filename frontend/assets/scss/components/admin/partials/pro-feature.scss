@@ -1,0 +1,55 @@
+.ccb-pro-feature {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+
+  opacity: .9;
+  z-index: 99999;
+  background: #eff4f4;
+
+  .ccb-pro-feature__wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .feature-container {
+      top: 50%;
+      left: 43%;
+      position: fixed;
+      text-align: center;
+      transform: translateX(-35%) translateY(-45%);
+
+      i {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      a {
+        color: #fff;
+        outline: none;
+        box-shadow: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        background: $iconColor;
+        border: 1px solid transparent;
+        transition: box-shadow .2s linear, border .2s linear;
+
+        &:hover {
+          border-color: $borderColor;
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+}

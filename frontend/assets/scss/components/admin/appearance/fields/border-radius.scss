@@ -1,0 +1,49 @@
+.ccb-b-radius-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+
+  .ccb-b-radius-tab {
+    max-width: 90px;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+
+    & > span {
+      border-right: 1px solid #dddddd;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 45px;
+      cursor: pointer;
+
+      &.ccb-b-active {
+        background-color: #00b1631a;
+        color: #00b163;
+      }
+    }
+  }
+
+  .ccb-b-radius-content {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+
+    & > div {
+      width: 25%;
+      border-right: 1px solid #dddddd;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    input {
+      border: none !important;
+    }
+  }
+}

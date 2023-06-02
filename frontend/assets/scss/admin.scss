@@ -1,0 +1,103 @@
+@import 'components/variables';
+@import 'components/admin/components/ccb-texts';
+@import 'components/admin/components/ccb-header';
+@import 'components/admin/components/loader';
+@import 'components/admin/partials/tooltip';
+@import "components/admin/partials/email-template-preview";
+
+@import 'components/admin/partials/modal';
+@import 'components/admin/partials/mobile-preview';
+@import 'components/admin/partials/feedback';
+@import 'components/admin/orders';
+@import 'components/admin/partials/demo-import';
+@import 'components/admin/partials/toast';
+@import 'components/admin/fields/index';
+
+@import 'components/admin/components/ccb-grid';
+@import 'components/admin/components/indention';
+@import 'components/admin/components/calculator-tab';
+@import 'components/admin/components/short-code';
+@import 'components/admin/components/custom-fields';
+@import 'components/admin/components/edit-formula';
+@import 'components/admin/components/add-options';
+@import 'components/admin/components/button';
+@import 'components/admin/components/ccb-notice';
+@import 'components/admin/components/back-to';
+@import 'components/admin/components/extended';
+@import 'components/admin/main';
+@import 'components/admin/components/table';
+@import 'components/admin/appearance/appearance';
+@import 'components/admin/appearance/accardion';
+@import 'components/admin/components/embed-popup';
+
+@import 'components/admin/condition';
+@import 'components/admin/quick-tour';
+@import 'components/admin/styles';
+@import 'components/frontend/partials/invoice';
+
+.ccb-settings-in-pro {
+  margin-top: 20px;
+  background: #FFFFFF ;
+  border: 1px solid #F47424;
+  border-radius: 10px;
+  opacity: 1;
+  position: relative;
+  width: 380px;
+  height: 60px;
+  display: flex;
+  align-content: center;
+  box-sizing: border-box;
+  padding: 0 20px;
+
+  &-container {
+    opacity: 0.7;
+    pointer-events: none;
+    display: flex;
+    align-content: center;
+  }
+
+  &-lock {
+    width: 44px;
+    height: 18px;
+    background-color: #F47424;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 12;
+    -webkit-column-gap: 3px;
+    column-gap: 3px;
+    text-decoration: none !important;
+    outline: none !important;
+    cursor: pointer;
+
+    i, span {
+      color: #fff !important;
+    }
+
+    i {
+      font-size: 11px;
+    }
+
+    span {
+      font-size: 9px;
+      font-weight: bold;
+    }
+  }
+}
+
+#ccb_summary_sticky {
+  position: sticky;
+  top: 0;
+}
+
+.ccb-field-title {
+	display: inline-block;
+	margin-bottom: 5px;
+	color: #001931;
+	font-size: 12px;
+	font-weight: 700;
+}

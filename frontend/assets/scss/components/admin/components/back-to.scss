@@ -1,0 +1,68 @@
+.ccb-back-container {
+  min-width: 124px;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  flex: 1;
+
+  border-right: 1px solid #dddddd;
+
+  .ccb-back-to-text {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    align-items: flex-start;
+    cursor: pointer;
+    max-width: 63px;
+
+    & > span {
+      line-height: 14px;
+      opacity: 0.5;
+      color: #001931;
+      font-size: 12px;
+      font-weight: 500;
+      font-style: normal;
+      letter-spacing: normal;
+      transition: 200ms ease-in-out;
+    }
+
+    &:hover {
+      & > span {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  .ccb-back-wrap {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    cursor: pointer;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background-color: #eef1f7;
+
+    i {
+      color: #001931;
+      font-size: 14px;
+      opacity: 0.7;
+      transition: all 200ms linear;
+    }
+
+    &:hover {
+      i {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+.ccb-back-label {
+  cursor: pointer;
+  color: #001931;
+  font-size: 18px;
+  font-weight: 700;
+}

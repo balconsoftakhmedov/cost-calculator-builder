@@ -1,0 +1,121 @@
+.ccb-input-wrapper {
+  position: relative;
+  .ccb-input-label {
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #001931;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .ccb-input-box {
+    position: relative;
+    overflow: hidden;
+  }
+
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance:textfield;
+  }
+
+  .input-number-counter {
+    position: absolute;
+    width: 18px;
+    height: 17px;
+    border-radius: 4px;
+    background-color: #eef1f7;
+    right: 5px;
+    cursor:pointer;
+    display: block;
+
+    @media only screen and (max-width: 1800px) {
+      width: 16px;
+      height: 15px;
+    }
+
+
+    &:after {
+      position: absolute;
+      content: "";
+      right: calc(50% - 4px);
+      top: calc(50% - 3px);
+      width: 8px;
+      height: 6px;
+      background-size: 8px 6px;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cg%3E%3Cg%3E%3Cpath fill='%23273044' d='M4.201 5.284a.43.43 0 0 1-.333-.17L.972 1.557a.677.677 0 0 1 0-.82c.184-.226.376-.208.534-.208h5.378c.137 0 .363-.018.547.209a.676.676 0 0 1 0 .819L4.535 5.114a.43.43 0 0 1-.334.17z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+      @media only screen and (max-width: 1800px) {
+        height: 5px;
+      }
+    }
+
+    &.down {
+      bottom: 4px;
+    }
+    &.up {
+      top: 4px;
+      &:after{
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  textarea {
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 10px 20px;
+    resize: none !important;
+    display: flex;
+    max-width: 100%;
+    width: 100%;
+    min-height: 80px;
+    border-radius: 4px;
+    border: 1px solid #dddddd !important;
+    background-color: #ffffff;
+
+    &.show-triangle {
+      resize: both !important;
+    }
+  }
+
+  input {
+    position: relative;
+    border-radius: 4px !important;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 11px 20px !important;
+    color: #001931;
+    font-size: 16px;
+    font-weight: 500;
+    outline: none !important;
+    box-shadow: none !important;
+    min-height: 0;
+    line-height: 1;
+
+    &:hover,
+    &:focus {
+      border-color: #dddddd;
+    }
+
+    @media only screen and (max-width: 1800px) {
+      font-size: 14px;
+    }
+
+    @media only screen and (max-width: 1550px) {
+      font-size: 13px;
+    }
+
+    @media only screen and (max-width: 1320px) {
+      font-size: 12px;
+    }
+  }
+
+}

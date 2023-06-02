@@ -1,0 +1,40 @@
+.ccb-background-field {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  width: 100%;
+  height: 45px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 2px;
+  border: 1px solid #dddddd;
+
+  & > div {
+    max-width: 33.33%;
+    width: 100%;
+    border-right: 1px solid #dddddd;
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  &.container {
+    padding: 0;
+    & > div {
+      max-width: 30%;
+      &:first-child {
+        max-width: 40%;
+      }
+    }
+  }
+
+  .ccb-color-picker,
+  input,
+  select {
+    border: none !important;
+    min-width: unset !important;
+  }
+}

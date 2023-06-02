@@ -1,0 +1,451 @@
+.condition-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 40px 0;
+
+  .ccb-pro-feature {
+    top: 6% !important;
+    width: 95% !important;
+    left: 2.5% !important;
+    opacity: .8 !important;
+    height: 90% !important;
+
+    .feature-container {
+      left: 47%;
+      position: absolute !important;
+
+      i {
+        margin-bottom: 35px;
+      }
+
+      p {
+        margin-bottom: 35px;
+      }
+    }
+  }
+
+
+  .condition-content {
+    width: 82%;
+    margin-left: 45px;
+
+    @media screen and (max-width: 1600px) {
+      width: 75%;
+    }
+
+    @media screen and (max-width: 1330px) {
+      width: 70%;
+    }
+
+    .ccb-condition-wrap {
+      width: 100%;
+      max-width: 1325px;
+      border: 1px dashed #ccc;
+    }
+  }
+
+  .condition-fields {
+    width: 17%;
+    position: relative;
+    max-height: 500px;
+    overflow: hidden;
+    &:hover, &:focus{
+      overflow: auto;
+    }
+
+    @media screen and (max-width: 1600px) {
+      width: 20%;
+    }
+
+    @media screen and (max-width: 1330px) {
+      width: 25%;
+    }
+
+    @import "partials/calc-field-row";
+
+  }
+
+
+}
+
+.ccb-condition-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  column-gap: 20px;
+  position: relative;
+
+  .ccb-condition-elements {
+    border-radius: 8px;
+    height: 100% !important;
+
+    .ccb-sidebar-item-list {
+      //height: calc(100% - 98px) !important;
+    }
+
+    .ccb-sidebar-item {
+      .ccb-sidebar-item-box {
+        width: 75%;
+      }
+    }
+  }
+
+  .ccb-condition-content {
+    width: 100%;
+    height: 100%;
+    margin-top: 3px;
+    border-radius: 8px;
+    border: 2px dashed #011A304D;
+  }
+
+
+  .ccb-c-rectangle {
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 1;
+    cursor: move;
+    transform-origin: top left;
+    width: 200px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    transition: border .2s linear;
+
+    &:focus{
+      .node-output-point{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    &.selected {
+      border-color: #b2bac1;
+      box-shadow: 0 3px 6px #0000001A;
+
+      .ccb-c-title-box-delete {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: all !important;
+      }
+
+      .node-port {
+        //border: 4px solid #00b163 !important;
+        left: -7px !important;
+
+        &.node-output {
+          left: unset !important;
+          right: -7px !important;
+        }
+      }
+
+      .node-output-point{
+        opacity: 1;
+        visibility: visible;
+      }
+      .ccb-delete {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: unset;
+      }
+    }
+
+    .node-output-point{
+      position: absolute;
+      border: 3px solid #eef1f7;
+      border-radius: 50px;
+      width: 16px;
+      height: 16px;
+      cursor: grab;
+      opacity: 0;
+      background-color: #b2bac1;
+      box-shadow: none;
+      outline: none;
+      &.left{
+        transform: translateX(-50%);
+      }
+      &.right{
+        right: 0;
+        transform: translateX(50%);
+      }
+      &.top{
+        transform: translateY(-50%);
+        &.left{
+          left: 15%;
+        }
+        &.right{
+          right: 15%;
+        }
+        &.center{
+          left:calc( 50% - 5.5px);
+        }
+      }
+      &.bottom{
+        bottom: 0;
+        transform: translateY(50%);
+        &.left{
+          left: 15%;
+        }
+        &.right{
+          right: 15%;
+        }
+        &.center{
+          left:calc( 50% - 5.5px);
+        }
+      }
+    }
+
+  }
+
+  .ccb-node-btn {
+    display: block;
+    cursor: pointer;
+    background: #fff;
+    color: $iconColor;
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .ccb-node-btn.ccb-delete {
+    right: 0;
+    opacity: 0;
+    top: -8px;
+    color: #c72323;
+    visibility: hidden;
+    transform: translateX(50%);
+    pointer-events: none;
+    transition: all .3s linear;
+  }
+
+  .ccb-node-btn.ccb-link {
+    top: 55%;
+    right: -10px;
+    transform: translateX(0%) translateY(-50%);
+  }
+
+  .ccb-node-btn i {
+    position: absolute;
+
+    top: 50%;
+    left: 51%;
+    color: #333333;
+    font-style: normal;
+
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+
+  .ccb-node-btn i:before {
+    font-size: 12px;
+  }
+
+  .ccb-c-main-condition .ccb-c-rectangle {
+    transform: translateY(-50%);
+    top: 43.5%;
+  }
+
+  .ccb-c-item-content {
+    display: flex;
+    margin: 35px 0;
+  }
+
+  .ccb-c-item-content:first-child {
+    margin-top: 0;;
+  }
+
+  .ccb-c-rectangle-item {
+    top: 50%;
+    left: 50%;
+
+    display: flex;
+    align-items: center;
+
+    width: 200px;
+    color: #333333;
+    font-size: 14px;
+    text-align: left;
+    max-height: 45px;
+    font-weight: bold;
+    line-height: 1.29;
+    font-style: normal;
+    position: absolute;
+    font-stretch: normal;
+    letter-spacing: normal;
+    transform: translateX(-50%) translateY(-50%);
+
+    span {
+      display: block;
+      &:first-of-type {
+        width: 40px;
+        font-size: 17px;
+        margin-left: 3px;
+        color: $iconColor;
+        text-align: center;
+      }
+    }
+
+    .ccb-c-title-box {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      &-inner {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &-delete {
+        width: 25px;
+        height: 25px;
+        background-color: #EEF1F7;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        cursor: pointer;
+        pointer-events: none;
+        transition: all 300ms linear;
+
+        .close-icon {
+          display: inline-block;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cg%3E%3Cg opacity='.7'%3E%3Cpath fill='%23333' d='M12 1.414L10.586 0 6 4.586 1.414 0 0 1.414 4.586 6 0 10.586 1.414 12 6 7.414 10.586 12 12 10.586 7.414 6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          background-size: contain;
+          width: 10px;
+          height: 10px;
+          margin: 0 !important;
+          padding: 0 !important;
+          position: relative;
+          top: 0.5px;
+          left: 0.5px;
+        }
+      }
+
+      .title {
+        width: 115px;
+        font-size: 13px;
+        max-height: 45px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .description {
+        opacity: 0.5;
+        color: #333333;
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+
+
+  }
+
+  .flowchart-container {
+    margin: 0;
+    background: #eef1f7;
+    position: relative;
+
+    .flowchart-no-elements {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      a {
+        margin-top: 15px;
+        padding: 10px 20px 11px;
+      }
+    }
+  }
+
+  .flowchart-container g:after {
+    display: block;
+    width: 40px;
+    height: 40px;
+    content: '';
+    background-color: #fff;
+    clear: both;
+  }
+
+  .ccb-triangle:after {
+    width: 0;
+    height: 0;
+    left: 50.5%;
+    clear: both;
+    bottom: 95%;
+    content: '';
+    position: absolute;
+    border-bottom: 20px solid #fff;
+    transform: translate(-50.5%, 0);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+  }
+
+  .flowchart-container svg {
+    cursor: grab;
+  }
+
+  .flowchart-node {
+    margin: 0;
+    z-index: 1;
+    opacity: .9;
+    width: 80px;
+    height: 80px;
+    border: none;
+    cursor: move;
+    background: white;
+    position: absolute;
+    box-sizing: border-box;
+    transform-origin: top left;
+  }
+
+  .node-main {
+    text-align: center;
+  }
+  .node-type {
+    color: white;
+    padding: 6px;
+    font-size: 13px;
+    background: rgb(255, 136, 85);
+  }
+  .node-label {
+    font-size: 13px;
+  }
+
+  .node-port {
+    top: 41.5%;
+    z-index: 2;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    position: absolute;
+    border-radius: 100px;
+    transform: rotate(-45deg);
+    border-left: 1px solid #c7d2d2;
+    border-top: 1px solid #c7d2d2;
+  }
+
+  .node-input {
+    left: -8px;
+  }
+  .node-output {
+    right: -8px;
+    transform: rotate(135deg);
+  }
+
+  g {
+    cursor: pointer;
+  }
+
+}
+

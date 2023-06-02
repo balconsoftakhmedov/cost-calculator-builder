@@ -1,0 +1,52 @@
+.ccb-radio-wrapper {
+  display: flex;
+  column-gap: 20px;
+  row-gap: 20px;
+
+  label, span {
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  input[type='radio'] {
+    outline: none;
+    max-width: 18px;
+    min-width: 18px;
+    max-height: 18px;
+    min-height: 18px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid #dddddd;
+    background-color: #ffffff;
+    -webkit-appearance: none;
+    margin-right: 5px;
+    margin-top: 0;
+
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    &:before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      margin-top: 4px;
+      margin-left: 4px;
+      display: block;
+      border-radius: 50%;
+    }
+
+    &:checked {
+      background: #00B163FF;
+      border: 2px solid transparent !important;
+    }
+
+    &:checked:before {
+      background: #fff;
+    }
+  }
+}

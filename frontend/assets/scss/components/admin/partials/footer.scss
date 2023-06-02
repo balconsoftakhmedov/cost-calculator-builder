@@ -1,0 +1,91 @@
+.ccb-footer {
+  margin-top: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s linear;
+
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .ccb-footer-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .calc-footer {
+      width: 50%;
+      display: flex;
+
+      button {
+        width: 25%;
+        font-size: 13px;
+        padding: 15px 0;
+        margin-right: 10px;
+        border-radius: 5px;
+        text-align: center;
+        text-transform: uppercase;
+        border: 1px solid $borderColor;
+        transition: background .2s linear;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+
+        &:first-child {
+          color: #fff;
+          background: $iconColor;
+
+          &:hover {
+            background-color: #047b47;
+          }
+        }
+
+        &:hover {
+          background: #fff;
+        }
+
+        &:active,
+        &:focus {
+          outline: none;
+        }
+
+        &:last-child {
+          font-weight: 700;
+        }
+      }
+
+      &.calc-other {
+        justify-content: flex-end;
+
+        .short-code-desc {
+          margin: auto 20px auto 0px;
+
+          h6 {
+            font-weight: 700;
+            font-size: 13px;
+          }
+
+          p {
+            font-size: 11px;
+            color: $textGrayColor;
+            padding: 0;
+            margin: 0;
+          }
+        }
+
+        .short-code p {
+          min-width: 250px;
+          padding: 10px;
+          background: #fff;
+          border-radius: 5px;
+          text-align: center;
+          border: 1px dashed #000;
+        }
+      }
+    }
+  }
+}

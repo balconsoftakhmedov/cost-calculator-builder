@@ -1,0 +1,190 @@
+//#ccb-demo-import {
+//  .existing-wrapper {
+//    .existing-list {
+//      &.header {
+//        justify-content: space-between;
+//        a {
+//          display: block;
+//          padding: 5px 15px;
+//          margin: -5px 0;
+//          border-radius: 5px;
+//          color: $whiteColor;
+//          background-color: $iconColor;
+//          cursor: pointer;
+//          font-weight: 500;
+//          text-transform: none;
+//        }
+//      }
+//      &.content {
+//        display: block;
+//        padding: 25px 15px;
+//        min-height: 155px;
+//      }
+//    }
+//  }
+//
+//  .demo-btn-wrapper {
+//    display: flex;
+//    justify-content: center;
+//    max-width: 800px;
+//    margin: 0 auto;
+//    padding: 50px 0;
+//    .demo-btn-item {
+//      width: 30%;
+//      position: relative;
+//      &.or {
+//        width: 15% !important;
+//        padding: 8px 12px;
+//        margin: 0 20px;
+//        text-align: center;
+//        transform: translateY(30%)
+//      }
+//    }
+//  }
+//
+//  .ccb-file-upload {
+//    padding-top: 10px;
+//    .ccb-file-container {
+//      display: flex;
+//      flex-direction: column;
+//      width: 100%;
+//      #ccb-upload {
+//        font-size: 12px;
+//        border: 1px solid #bbb5b5;
+//        padding: 10px;
+//        min-width: 95px;
+//        width: 100%;
+//        text-align: center;
+//        cursor: pointer;
+//        border-radius: 6px;
+//      }
+//      #ccb-file-text {
+//        text-align: center;
+//      }
+//    }
+//  }
+//
+//  .ccb-demo-import-button {
+//    padding: 10px;
+//    color: $whiteColor;
+//    display: block;
+//    text-align: center;
+//    margin: 5px 0;
+//    font-size: 12px;
+//    background-color: $iconColor;
+//    border-radius: 5px;
+//    cursor: pointer;
+//    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+//    &.default {
+//      transform: translateY(75%);
+//    }
+//    &:hover {
+//      background-color: $iconColor;
+//    }
+//    button[disabled] {
+//      background-color: $iconColor !important;
+//    }
+//  }
+//}
+
+.ccb-demo-import-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 140px);
+  background-color: #ffffff;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .ccb-demo-import-header {
+    width: 100%;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    padding: 30px 0 0 30px;
+    position: absolute;
+    top: 0;
+  }
+
+  .ccb-demo-import-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: max-content;
+    margin: 0 auto;
+    position: relative;
+
+    .ccb-loader {
+      margin-top: 30px;
+    }
+
+    .ccb-demo-import-icon-wrap {
+      width: 100px;
+      height: 100px;
+      color: #1ab163;
+      background-color: rgba(26, 177, 99, 0.1);
+      border-radius: 50px;
+      font-size: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .calc-logo {
+        width: 50px;
+      }
+    }
+
+    .ccb-demo-import-title {
+      margin-top: 25px;
+      line-height: 1;
+      span {
+        color: #001931;
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+
+    .ccb-demo-import-description {
+      margin-top: 13px;
+      line-height: 1;
+      span {
+        opacity: 0.5;
+        color: #001931;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+
+    .ccb-demo-import-action {
+      line-height: 1;
+      margin-top: 30px;
+      height: 40px;
+
+      display: flex;
+      column-gap: 10px;
+    }
+
+    .ccb-progress-container {
+      width: 400px;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+
+      .progress {
+        height: 6px;
+        border-radius: 3px;
+      }
+
+      .progress-bar-value {
+        opacity: 0.5;
+        color: #001931;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+  }
+}

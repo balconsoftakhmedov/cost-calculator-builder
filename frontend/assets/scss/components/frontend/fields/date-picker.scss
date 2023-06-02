@@ -1,0 +1,63 @@
+.mx-datepicker-popup {
+  min-width: 270px;
+
+  @media screen and (max-width: 550px) {
+    left: -0% !important;
+    width: 350px !important;
+  }
+
+  &.range {
+    min-width: 530px;
+
+    .mx-datepicker-top {
+      display: block;
+      text-align: center;
+      span {
+        &:last-child {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 550px) {
+      div {
+        &:first-child {
+          display: flex;
+          flex-direction: column;
+
+          .mx-datepicker-top {
+            display: block;
+          }
+
+          .mx-calendar {
+            width: 100% !important;
+
+            .mx-calendar-header {
+              display: block;
+            }
+          }
+        }
+
+        &.mx-datepicker-footer {
+          text-align: left;
+          padding: 10px;
+        }
+
+      }
+    }
+
+  }
+
+  .mx-datepicker-btn {
+    padding: 7px 15px !important;
+    margin: 5px !important;
+  }
+}
+
+.mx-datepicker {
+  .range-control-widget {
+    display: none;
+  }
+}

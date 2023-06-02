@@ -1,0 +1,154 @@
+#ccb-mobile-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .ccb-mobile-frame {
+    height: 660px;
+  }
+
+  .calc-checkbox {
+    &.ccb-horizontal {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .calc-appearance-preview-wrapper {
+    position: relative;
+    width: 326px;
+    height: 660px;
+
+    .two_column {
+      .calc-radio-image-wrapper,
+      .calc-checkbox-image-wrapper {
+        max-width: unset;
+        width: 48% !important;
+        min-height: 190px !important;
+      }
+    }
+
+    .calc-subtotal {
+      .calc-buttons {
+        flex-direction: column;
+        button {
+          width: 100%;
+          margin-bottom: 10px;
+          letter-spacing: 0;
+          opacity: 0.7;
+          pointer-events: none;
+        }
+      }
+    }
+
+    & > img {
+      position: absolute;
+      z-index: 10;
+      max-width: 326px;
+      width: 100%;
+    }
+
+    & > div {
+      top: 43px;
+      left: 17px;
+      z-index: 11;
+      width: 291px;
+      height: 600px;
+      overflow: scroll;
+      overflow-x: hidden;
+      position: absolute;
+      background: transparent;
+      border-radius: 0 0 33px 33px;
+
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+
+      .calc-container {
+        padding: 0;
+        max-width: unset !important;
+        row-gap: 20px;
+      }
+    }
+    
+    @media (max-width: 1280px) {
+      transform: scale(0.8);
+    }
+  }
+
+
+
+  .calc-container {
+    .calc-subtotal {
+      .calc-buttons {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+        button {
+          width: 100%;
+          margin-right: 0!important;
+        }
+      }
+    }
+
+
+    .calc-list {
+      padding: 0 !important;
+      box-shadow: none !important;
+      position: relative;
+      left: 1px;
+      width: 291px;
+
+      .calc-list-inner {
+        width: 100% !important;
+      }
+
+      &:last-child {
+        margin-bottom: 15px !important;
+      }
+    }
+  }
+
+  .calc-checkbox.calc-checkbox-image,
+  .calc-radio-wrapper.calc-radio-image {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    column-gap: 0;
+    row-gap: 15px;
+  }
+
+
+  .calc-radio-image-wrapper,
+  .calc-checkbox-image-wrapper {
+    max-width: unset;
+    width: 48%;
+    min-height: 190px;
+  }
+
+  .calc-radio-wrapper.calc-radio-image .calc-radio-info .calc-radio-label,
+  .calc-radio-wrapper.calc-radio-image .calc-radio-info .calc-radio-price,
+  .calc-checkbox.calc-checkbox-image .calc-checkbox-info .calc-checkbox-price,
+  .calc-checkbox.calc-checkbox-image .calc-checkbox-info .calc-checkbox-label {
+    font-size: 12px !important;
+  }
+}
+
+.calc-appearance-preview-wrapper {
+  .two_column {
+    .calc-radio-image-wrapper,
+    .calc-checkbox-image-wrapper {
+      max-width: unset;
+      width: 48% !important;
+      min-height: 200px !important;
+    }
+
+    .calc-radio-image-wrapper label {
+      right: 0 !important;
+    }
+
+    .calc-checkbox-image-wrapper .calc-checkbox-item {
+      right: 0 !important;
+    }
+  }
+}

@@ -1,0 +1,292 @@
+.email-preview {
+	max-width: 550px;
+	width: 100%;
+	&-wrapper {
+		background: #D2D8E5;
+		padding: 20px;
+		display: flex;
+		justify-content: center;
+		border-radius: 10px;
+	}
+
+	&__header {
+		width: 100%;
+		padding: 10px;
+		display: flex;
+		justify-content: center;
+		background-color: #fff;
+		margin-bottom: 10px;
+
+		img {
+			max-height: 100px;
+		}
+	}
+
+	&__title {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 15px;
+
+		.title {
+			font-size: 16px;
+			font-weight: 700;
+			width: 80%;
+		}
+
+		.date {
+			font-size: 12px;
+			width: 20%;
+			text-align: right;
+			line-height: 2.2;
+		}
+	}
+
+	&-body {
+		padding: 0 40px;
+
+		@media (max-width: 1440px) {
+			padding: 0 10px;
+		}
+
+		&__title {
+			font-size: 16px;
+			font-weight: 700;
+		}
+
+		&-summary {
+			padding: 20px;
+			margin-bottom: 20px;
+
+			&__title {
+				font-weight: 700;
+				margin-bottom: 10px;
+			}
+
+			&__list {
+
+				.summary-list {
+					&__item {
+						display: flex;
+						flex-wrap: wrap;
+						font-size: 12px;
+						padding: 5px 0;
+						border-bottom: 1px solid;
+
+						&:last-child {
+							border-bottom: none;
+
+						}
+
+						div {
+							font-weight: 700;
+							width: 50%;
+							text-align: right;
+							&:first-child {
+								text-align: left;
+								font-weight: 500;
+							}
+						}
+
+						ul {
+							width: 100%;
+							padding-left: 30px;
+							list-style: disc;
+							margin-top: 5px;
+							li {
+								display: list-item;
+								border-bottom: none;
+								margin: 0;
+								padding: 0;
+								.wrapper {
+									display: flex;
+									justify-content: space-between;
+									width: 100%;
+								}
+								div {
+									width: 50%;
+									text-align: right;
+
+									&:first-child {
+										text-align: left;
+									};
+								}
+
+								&::marker {
+									color: #00193180;
+								}
+							}
+
+						}
+
+					}
+				}
+			}
+
+
+		}
+	}
+
+	&__total {
+		display: flex;
+		justify-content: space-between;
+		border-top: 2px solid #eee;
+		padding-top: 5px;
+
+		div {
+			font-style: normal;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 23px;
+		}
+	}
+
+	&__files {
+		margin-top: 20px;
+	}
+
+	&-file {
+		display: flex;
+		padding: 4px;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		margin-bottom: 8px;
+
+		&__icon {
+			width: 40px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&__info {
+			display: flex;
+			flex-direction: column;
+			span {
+				font-size: 12px;
+				font-weight: 700;
+				line-height: 1.4;
+
+				&:last-child {
+					font-weight: 500;
+				}
+			}
+		}
+
+		&__button {
+			margin-left: auto;
+			font-size: 12px;
+			font-weight: 700;
+			padding: 4px 10px;
+			border-radius: 4px;
+			background-color: #EEF1F7;
+			line-height: 2;
+			cursor: pointer;
+			transition: 300ms ease;
+
+			&:hover {
+				background-color: #dbdbdb;
+			}
+		}
+	}
+
+	&-description {
+		text-align: center;
+		font-size: 12px;
+		padding: 0 10px;
+		margin-bottom: 30px;
+	}
+
+	&__footer {
+		display: flex;
+		justify-content: center;
+
+		border-top: 1px solid #DDDDDD;
+		padding: 10px 0;
+		span {
+			font-size: 12px;
+			margin-right: 4px;
+
+			&:last-child {
+				margin-left: 5px;
+				line-height: 1.2;
+			}
+
+			img {
+				max-height: 15px;
+			}
+		}
+	}
+
+}
+
+.ccb-color {
+	&__title {
+		font-family: 'Eudoxus Sans';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 15px;
+		color: #001931;
+	}
+	
+	.ccb-color-picker {
+		padding: 8px 6px;
+		display: flex;
+		align-items: center;
+		width: 100%;
+		border: 1px solid #dddddd;
+		border-radius: 4px;
+		background: #ffffff;
+		height: 44px;
+		
+		.color {
+			cursor: pointer;
+			min-width: 32px;
+			min-height: 32px;
+			border-radius: 4px;
+			background-color: #21c521;
+			border: 1px solid #dddddd;
+			margin-right: 10px;
+		}
+		
+		.color-value {
+			text-transform: uppercase;
+			white-space: nowrap;
+			
+			@media only screen and (max-width: 1700px) {
+				font-size: 12px;
+			}
+		}
+		
+		.sticky-popover {
+			position: absolute;
+			z-index: 3;
+			left: -30px;
+		}
+		
+		.sticky-cover {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+	}
+}
+
+.email-preview-docs {
+	span {
+		font-style: normal;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 15px;
+		color: #788593;
+	}
+
+	a {
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 15px;
+		color: #00B163;
+	}
+}

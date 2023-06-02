@@ -1,0 +1,315 @@
+.calc-radio-wrapper {
+  &.default {
+    display: flex;
+    column-gap: 20px;
+    row-gap: 10px;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+
+    label, span {
+      line-height: 1 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    label {
+      display: flex !important;
+      align-items: center !important;
+      cursor: pointer;
+
+      .calc-radio-label {
+        color: #001931;
+        font-size: 16px;
+        font-weight: 500;
+        font-style: normal;
+      }
+    }
+  }
+
+  &.default,
+  &.boxed-with-radio {
+    input[type='radio'] {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+      max-width: 18px;
+      min-width: 18px;
+      max-height: 18px;
+      min-height: 18px;
+      border-radius: 50%;
+      position: relative;
+      border: 2px solid #dddddd;
+      background-color: #ffffff;
+      -webkit-appearance: none;
+      margin-right: 7px;
+      margin-top: 0;
+      outline: none !important;
+      box-shadow: none !important;
+
+      &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+
+      &:after {
+        display: none !important;
+      }
+
+      &:before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        display: block;
+        border-radius: 50%;
+      }
+
+      &:checked {
+        background: #00B163;
+        border: 2px solid transparent !important;
+      }
+
+      &:checked:before {
+        background: #fff;
+      }
+    }
+  }
+
+
+  &.boxed-with-radio,
+  &.boxed {
+    display: flex;
+    row-gap: 10px;
+    column-gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .calc-radio-item {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      min-height: auto;
+      flex-grow: unset !important;
+
+      label {
+        margin: 0;
+        padding: 12px 30px;
+        background: #FFFFFF;
+        border: 1px solid #DDDDDD;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.25;
+      }
+
+      input {
+        display: none !important;
+      }
+
+      input:checked + label {
+        background: $iconColor;
+        border: 1px solid $iconColor;
+
+        .calc-radio-label {
+          color: #FFFFFF !important;
+        }
+      }
+    }
+  }
+
+  &.boxed-with-radio {
+    .calc-radio-item {
+      position: relative;
+      label {
+        padding: 12px 30px 12px 40px;
+      }
+
+      input {
+        left: 15px;
+        top: 14px;
+        position: absolute;
+        display: flex !important;
+      }
+
+      input:checked + label {
+        background: #00b1631A;
+        border: 1px solid $iconColor;
+      }
+    }
+  }
+
+  &.calc-radio-image {
+    column-gap: 0;
+    row-gap: 10px;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    @media screen and (max-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 15px;
+      column-gap: 20px;
+    }
+
+    @media screen and (max-width: 550px) {
+      display: flex;
+      column-gap: 0;
+      row-gap: 15px;
+    }
+
+    &.default {
+      .calc-radio-image-wrapper {
+        min-height: 220px;
+        border: 2px solid #eeeeee;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        border-radius: 4px;
+        cursor: pointer;
+        max-width: unset;
+        width: 48%;
+
+        @media screen and (max-width: 935px) {
+          max-width: 155px;
+          width: 100%;
+        }
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          max-width: unset;
+        }
+
+        @media screen and (max-width: 550px) {
+          max-width: unset;
+          width: 48%;
+        }
+
+        .calc-radio-image-box {
+          padding: 18px;
+          line-height: 0.7;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 4px;
+          object-fit: cover;
+          aspect-ratio: 1 / 1;
+        }
+      }
+
+      .calc-radio-info {
+        width: 90%;
+        padding: 5px 10px 12px 10px;
+        position: relative;
+
+        .calc-radio-title-box {
+          display: flex;
+          flex-direction: column;
+          row-gap: 10px;
+        }
+
+        .calc-radio-label {
+          color: #001931;
+          font-size: 16px;
+          font-weight: 500;
+          font-style: normal;
+        }
+
+        .calc-radio-price {
+          color: #001931b3;
+          font-size: 12px;
+          font-weight: 500;
+          font-style: normal;
+        }
+      }
+
+      label {
+        position: absolute;
+        bottom: 10px;
+        right: 2px;
+      }
+    }
+
+    &.with-icon {
+      justify-content: flex-start;
+      flex-direction: row;
+      row-gap: 10px;
+      column-gap: 10px;
+
+      input {
+        display: none;
+      }
+
+      .calc-radio-image-wrapper {
+        cursor: pointer;
+        height: 100%;
+        line-height: 1;
+        background: #FFFFFF;
+        border: 1px solid #DDDDDD;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 7px;
+        padding: 10px 18px;
+        align-items: center;
+        justify-content: center;
+
+        &.calc-radio-image-selected {
+          border: 1px solid $iconColor;
+          background: #00b1631A;
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+
+  &.calc-is-vertical {
+    &.calc-radio-image {
+      &.with-icon {
+        .calc-radio-image-wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+
+    .calc-radio-item {
+      width: 100% !important;
+
+      label {
+        width: 100%;
+        display: flex;
+      }
+    }
+
+    &.boxed {
+      .calc-radio-item {
+        label {
+          justify-content: center;
+        }
+      }
+    }
+
+    &.boxed-with-radio {
+      .calc-radio-item {
+        label {
+          justify-content: flex-start;
+        }
+      }
+    }
+  }
+}
