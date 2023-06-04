@@ -38,6 +38,7 @@ export default {
 			formulaConst: [],
 			demoBoxStyle: false,
 			preview_loader: false,
+			freightQuote: '',
 
 			$calc: null,
 			tempVal: {},
@@ -232,7 +233,9 @@ export default {
 
 			}, 600)
 		},
-
+		buttonClick() {
+			this.apply();
+		},
 		getInvoice() {
 			if (this.$refs.invoice) {
 				this.$refs.invoice.generateReport()
@@ -394,7 +397,7 @@ export default {
 			this.$store.commit('setShowMessage', false);
 			this.$store.commit('setShowPayments', false);
 			this.$store.dispatch('updateMethodAction', '');
-
+			this.freightQuote = Math.floor(Math.random() * (99999999 - 10000000 + 1)) + 10000000;
 			setTimeout(() => {
 				this.ccbInitSticky()
 				this.loader = false
@@ -432,9 +435,7 @@ export default {
 
 			//this.apply();
 		},
-		buttonClick() {
-			this.apply();
-		},
+
 		ccbInitSticky() {
 			const $selector = `#ccb_summary_sticky_${this.id}`
 			const $sticky = document.querySelector($selector)
