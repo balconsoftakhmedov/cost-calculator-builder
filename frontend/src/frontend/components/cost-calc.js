@@ -402,14 +402,13 @@ export default {
 			}, 3000);
 		},
 		apply() {
+			this.freightQuote = Math.floor(Math.random() * (99999999 - 10000000 + 1)) + 10000000;
 			this.initializeStore();
 			this.initializeFormula();
 			this.readyAvailable();
 			this.clearFormula();
 			this.calculate();
-
 			this.addToBlockedHiddenFields();
-console.log(Object.values(this.calcStore));
 			this.$store.commit('updateFormula', this.formula);
 			this.$store.commit('updateSubtotal', Object.values(this.calcStore));
 			this.$store.dispatch('updateOpenAction', false);
@@ -418,7 +417,6 @@ console.log(Object.values(this.calcStore));
 			this.$store.commit('setShowMessage', false);
 			this.$store.commit('setShowPayments', false);
 			this.$store.dispatch('updateMethodAction', '');
-			this.freightQuote = Math.floor(Math.random() * (99999999 - 10000000 + 1)) + 10000000;
 			setTimeout(() => {
 				this.ccbInitSticky()
 				this.loader = false
@@ -648,7 +646,7 @@ console.log(Object.values(this.calcStore));
 			let value = element.value ? element.value : 0;
 			value = element.unit ? this.validateUnit(value * element.unit, numAfterInt) : value;
 			value = element.round ? Math.round(value) : parseFloat(value);
-
+			console.log('quan', value);
 			let skip
 			if (typeof window.$calcGlobalHiddens === "undefined")
 				window.$calcGlobalHiddens = {}
@@ -817,6 +815,9 @@ console.log(Object.values(this.calcStore));
 
 					} else if (['quantity'].includes(fieldName)) {
 						/** Set float  fields value **/
+						if (element.label.includes('Quote')) {
+							element.value = vm.freightQuote;
+						}
 						this.setStoreFloatTypeFields(element);
 
 					} else if (fieldName === 'total') {
