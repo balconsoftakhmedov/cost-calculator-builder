@@ -164,7 +164,7 @@ export default {
 	},
 
 	mounted() {
-		console.log('test');
+
 		/** set language **/
 		if (this.content.hasOwnProperty('language')) {
 			this.$store.commit('setLanguage', this.content.language);
@@ -236,21 +236,35 @@ export default {
 		},
 		buttonClick() {
 			this.apply();
+			if (this.$store.getters.hasUnusedFields) {
+				this.scrollToTop();
+				return;
+			}
 			this.showNotice();
 			this.scrollToTop();
 		},
 		scrollToTop() {
-			const scrollDuration = 1000; // Duration of the scroll animation in milliseconds
-			const scrollStep = -window.scrollY / (scrollDuration / 15); // Incremental scroll position per step
+			const scrollDuration = 1000;
+			const calcContainer = document.querySelector('.calc-container');
+			let yPos = 0;
+			console.log('calcContainer', calcContainer);
+			if (calcContainer) {
+				const rect = calcContainer.getBoundingClientRect();
+				const yPos = rect.top + window.pageYOffset;
+				console.log('Y position:', yPos);
+			}
+			const targetY = yPos;
+			const scrollStep = (targetY - window.scrollY) / (scrollDuration / 15);
 
 			const scrollInterval = setInterval(() => {
-				if (window.scrollY !== 0) {
+				if (window.scrollY > targetY) {
 					window.scrollBy(0, scrollStep);
 				} else {
 					clearInterval(scrollInterval);
 				}
 			}, 15);
 		},
+
 		getInvoice() {
 			if (this.$refs.invoice) {
 				this.$refs.invoice.generateReport()
