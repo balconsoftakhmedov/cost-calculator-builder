@@ -162,7 +162,7 @@ export default {
 	},
 
 	mounted() {
-
+		console.log('test');
 		/** set language **/
 		if (this.content.hasOwnProperty('language')) {
 			this.$store.commit('setLanguage', this.content.language);
