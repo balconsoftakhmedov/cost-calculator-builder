@@ -26,7 +26,7 @@ export default {
 	data() {
 		return {
 			accordionHeight: '100%',
-            currentAccordionHeight: '100%',
+			currentAccordionHeight: '100%',
 			notice: {},
 			fields: {},
 			formula: '',
@@ -103,7 +103,7 @@ export default {
 		},
 
 		getTotalStickyId() {
-			if ( this.boxStyle === 'horizontal' || +ajax_window.pro_active !== 1 || this.getSticky === false ) {
+			if (this.boxStyle === 'horizontal' || +ajax_window.pro_active !== 1 || this.getSticky === false) {
 				if (window.$ccbSticky)
 					window.$ccbSticky.destroy()
 
@@ -198,7 +198,7 @@ export default {
 			this.$store.commit('setProActive', this.content.pro_active);
 		}
 
-		if ( window.ajax_window.hasOwnProperty('pro_active') )
+		if (window.ajax_window.hasOwnProperty('pro_active'))
 			this.$store.commit('setProActive', ajax_window.pro_active);
 
 		this.init();
@@ -211,7 +211,7 @@ export default {
 		parseTotalsForInvoice() {
 			setTimeout(() => {
 				let totalsWrapper = this.$refs.calcTotals
-				let	totals = totalsWrapper.querySelectorAll('.sub-list-item')
+				let totals = totalsWrapper.querySelectorAll('.sub-list-item')
 				let finalSummaryList = [];
 				totals.forEach(item => {
 					let title = item.querySelector('.sub-item-title').innerHTML
@@ -223,7 +223,7 @@ export default {
 
 					if (!item.getAttribute('style')) {
 						finalSummaryList.push(data)
-					} else if( item.getAttribute('style') && !item.getAttribute('style').includes('display: none;')) {
+					} else if (item.getAttribute('style') && !item.getAttribute('style').includes('display: none;')) {
 						finalSummaryList.push(data)
 					}
 				})
@@ -240,7 +240,7 @@ export default {
 		},
 
 		showSendPdf() {
-			if ( this.$refs.invoice ) {
+			if (this.$refs.invoice) {
 				this.$refs.invoice.showSendEmailModal()
 			}
 		},
@@ -255,18 +255,18 @@ export default {
 			this.triggerCondition()
 			this.$store.commit('setFormFields', [])
 		},
-        toggleAccordion(){
-            if (this.$refs.calcAccordion) {
-                if ( this.currentAccordionHeight === '0px' ) {
-                    this.currentAccordionHeight = this.accordionHeight;
-                } else {
-                    this.currentAccordionHeight ='0px';
-                }
-            }
-        },
+		toggleAccordion() {
+			if (this.$refs.calcAccordion) {
+				if (this.currentAccordionHeight === '0px') {
+					this.currentAccordionHeight = this.accordionHeight;
+				} else {
+					this.currentAccordionHeight = '0px';
+				}
+			}
+		},
 		initTotalSummaryAccordion(firstLoad = false) { //TODO - remove firstLoad
 			if (this.$refs.calcAccordionToggle) {
-                setTimeout(() => this.accordionHeight = this.$refs.calcAccordion.scrollHeight + 'px', 0);
+				setTimeout(() => this.accordionHeight = this.$refs.calcAccordion.scrollHeight + 'px', 0);
 			}
 		},
 
@@ -298,7 +298,7 @@ export default {
 				if (this.calc_data.settings) {
 					this.settings = this.calc_data.settings;
 					this.$store.commit('updateSettings', this.settings);
-                    this.currentAccordionHeight = (!this.settings.general.show_details_accordion ) ? '0px': this.currentAccordionHeight;
+					this.currentAccordionHeight = (!this.settings.general.show_details_accordion) ? '0px' : this.currentAccordionHeight;
 				}
 
 				this.initCalcField();
@@ -430,9 +430,11 @@ export default {
 					this.fields[alias].extraLabel = label;
 			}
 
+			//this.apply();
+		},
+		buttonClick() {
 			this.apply();
 		},
-
 		ccbInitSticky() {
 			const $selector = `#ccb_summary_sticky_${this.id}`
 			const $sticky = document.querySelector($selector)
@@ -551,7 +553,7 @@ export default {
 			}
 
 			let value;
-			value     = element.unit ? this.validateUnit(elementValue * element.unit) : elementValue;
+			value = element.unit ? this.validateUnit(elementValue * element.unit) : elementValue;
 			value = element.round ? Math.round(value) : value;
 
 
@@ -560,8 +562,8 @@ export default {
 				label: element.value.value + ' (' + element.value.start + ' - ' + element.value.end + ') '
 			}];
 
-            const filterElement = Object.assign({}, element);
-            filterElement.value = value;
+			const filterElement = Object.assign({}, element);
+			filterElement.value = value;
 			this.filterUnused(extra, filterElement);
 
 			vm.$set(vm.calcStore, element.alias, {
@@ -626,10 +628,10 @@ export default {
 			value = element.round ? Math.round(value) : parseFloat(value);
 
 			let skip
-			if ( typeof window.$calcGlobalHiddens === "undefined" )
+			if (typeof window.$calcGlobalHiddens === "undefined")
 				window.$calcGlobalHiddens = {}
 
-			if ( typeof window.$calcGlobalHiddens[element.alias] !== "undefined" && window.$calcGlobalHiddens[element.alias].skip !== true ) {
+			if (typeof window.$calcGlobalHiddens[element.alias] !== "undefined" && window.$calcGlobalHiddens[element.alias].skip !== true) {
 				window.$calcGlobalHiddens[element.alias] = {
 					value: element.hidden,
 					skip: false
@@ -818,7 +820,7 @@ export default {
 							label: element.label,
 							hidden: element.hidden,
 							required: element.required,
-                            addToSummary: element.addToSummary,
+							addToSummary: element.addToSummary,
 							styles: element.styles,
 							converted: fieldName === 'text' ? element.value : '',
 							value: fieldName === 'text' ? element.value : 0,
@@ -891,7 +893,7 @@ export default {
 
 				/** replace totals which have just fields data inside **/
 				Object.keys(totals).forEach(totalAliasWithFullFormula => {
-					if ( newFormula.includes('(' + totalAliasWithFullFormula + ')') ) {
+					if (newFormula.includes('(' + totalAliasWithFullFormula + ')')) {
 						newFormula = newFormula.split(
 							totalAliasWithFullFormula).join(eval(totals[totalAliasWithFullFormula].value));
 					}
@@ -903,7 +905,7 @@ export default {
 					totalElementAliases.forEach(totalToReplaceAlias => {
 
 						var totalToReplace = this.formula.find(formulaItem => formulaItem.alias === totalToReplaceAlias);
-						if ( totalToReplace )
+						if (totalToReplace)
 							newFormula = newFormula.split(totalToReplaceAlias).join(totalToReplace.formula);
 					})
 				}
@@ -912,6 +914,7 @@ export default {
 		},
 
 		calculate() {
+
 			this.formula
 				.forEach(element => {
 					let summary = eval(element.formula);
@@ -941,7 +944,7 @@ export default {
 		/** get additional classes for total fiels **/
 		getCustomTotalCls(fieldAlias) {
 			let cls = ''
-			if ( this.fields.hasOwnProperty(fieldAlias) ) {
+			if (this.fields.hasOwnProperty(fieldAlias)) {
 				cls = this.fields[fieldAlias].additionalStyles;
 			}
 			return cls;
@@ -966,7 +969,7 @@ export default {
 
 		to_short(value, container, len = 40) {
 			value = value || '';
-			if ( container === 'vertical' && value.length >= len ) {
+			if (container === 'vertical' && value.length >= len) {
 				return value.substring(0, len) + '...';
 			}
 			return value;
