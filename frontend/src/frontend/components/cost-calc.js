@@ -409,7 +409,7 @@ export default {
 			this.calculate();
 
 			this.addToBlockedHiddenFields();
-
+console.log(Object.values(this.calcStore));
 			this.$store.commit('updateFormula', this.formula);
 			this.$store.commit('updateSubtotal', Object.values(this.calcStore));
 			this.$store.dispatch('updateOpenAction', false);
