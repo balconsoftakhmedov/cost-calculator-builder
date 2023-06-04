@@ -237,10 +237,19 @@ export default {
 		buttonClick() {
 			this.apply();
 			this.showNotice();
-			window.scrollTo({
-				top: 0,
-				behavior: 'smooth'
-			});
+			this.scrollToTop();
+		},
+		scrollToTop() {
+			const scrollDuration = 1000; // Duration of the scroll animation in milliseconds
+			const scrollStep = -window.scrollY / (scrollDuration / 15); // Incremental scroll position per step
+
+			const scrollInterval = setInterval(() => {
+				if (window.scrollY !== 0) {
+					window.scrollBy(0, scrollStep);
+				} else {
+					clearInterval(scrollInterval);
+				}
+			}, 15);
 		},
 		getInvoice() {
 			if (this.$refs.invoice) {
