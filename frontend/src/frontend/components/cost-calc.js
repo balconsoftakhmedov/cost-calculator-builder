@@ -39,6 +39,7 @@ export default {
 			demoBoxStyle: false,
 			preview_loader: false,
 			freightQuote: '',
+			showingNotice: false,
 
 			$calc: null,
 			tempVal: {},
@@ -235,6 +236,11 @@ export default {
 		},
 		buttonClick() {
 			this.apply();
+			this.showNotice();
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
 		},
 		getInvoice() {
 			if (this.$refs.invoice) {
@@ -379,7 +385,13 @@ export default {
 				}
 			});
 		},
+		showNotice() {
+			this.showingNotice = true;
 
+			setTimeout(() => {
+				this.showingNotice = false;
+			}, 3000);
+		},
 		apply() {
 			this.initializeStore();
 			this.initializeFormula();
@@ -397,6 +409,7 @@ export default {
 			this.$store.commit('setShowMessage', false);
 			this.$store.commit('setShowPayments', false);
 			this.$store.dispatch('updateMethodAction', '');
+			this.freightQuote = Math.floor(Math.random() * (99999999 - 10000000 + 1)) + 10000000;
 			setTimeout(() => {
 				this.ccbInitSticky()
 				this.loader = false
