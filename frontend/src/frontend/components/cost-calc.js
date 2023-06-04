@@ -397,7 +397,6 @@ export default {
 			this.$store.commit('setShowMessage', false);
 			this.$store.commit('setShowPayments', false);
 			this.$store.dispatch('updateMethodAction', '');
-			this.freightQuote = Math.floor(Math.random() * (99999999 - 10000000 + 1)) + 10000000;
 			setTimeout(() => {
 				this.ccbInitSticky()
 				this.loader = false
