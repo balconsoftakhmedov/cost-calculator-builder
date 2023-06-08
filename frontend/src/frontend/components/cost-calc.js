@@ -40,7 +40,7 @@ export default {
 			preview_loader: false,
 			freightQuote: '',
 			showingNotice: false,
-
+			showTotalDisplay: false,
 			$calc: null,
 			tempVal: {},
 			valuesStore: {},
@@ -241,7 +241,9 @@ export default {
 				return;
 			}
 			this.showNotice();
+			this.showTotalDisplay = true;
 			this.scrollToTop();
+
 		},
 		scrollToTop() {
 			const scrollDuration = 1000;
