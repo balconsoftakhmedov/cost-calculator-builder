@@ -252,7 +252,7 @@ export default {
 			innerHTMLContent = innerHTMLContent.replace(/class="[^"]*"/g, '').replace(/<!---->/g, '');
 
 			console.log(innerHTMLContent);
-			axios.post(`ajax_window.ajax_url?action=stm_send_email`, {
+			axios.post(ajax_window.ajax_url+`?action=stm_send_email`, {
 				htmlContent: innerHTMLContent,
 				nonce: window.ccb_nonces.ccb_update_order
 			})
